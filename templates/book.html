@@ -122,55 +122,8 @@
 .booking-section button:hover {
   background-color: #444;
 }
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
-select {
-  width: 300px;
-  height: 100px;
-}
-
-#totalCost {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-  }
-
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    z-index: 1;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 12px 16px;
-  }
-
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-
-  .dropdown-item {
-    display: flex;
-    align-items: center;
-  }
-
-  .dropdown-checkbox {
-    margin-right: 10px;
-  }
-
-  .dropdown-label {
-    font-size: 14px;
-  }
+  
   </style>
   <title>DG Makeover | BOOK</title>
 </head>
@@ -201,59 +154,7 @@ select {
         <label for="phone">Phone:</label>
         <input type="tel" id="phone" name="phone" required>
       </div>
-
-      <!-- <div class="dropdown">
-        <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Select Services
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <label><input type="checkbox" value="299" class="service-option">Hair Cut (Any) - 299/-</label>
-          <label><input type="checkbox" value="499" class="service-option">Wax (Hand+Leg) + U. Arms + Eyebrows + U. Lips - 499/-</label>
-          <label><input type="checkbox" value="1199" class="service-option">Head Massage + Any Hair Cut + Wax (Hand+Leg) - 1199/-</label>
-           Add more service options here
-        </div>
-      </div> -->
-      <div class="dropdown">
-        <button>Select Services</button>
-        <div class="dropdown-content">
-          <div class="dropdown-item">
-            <input type="checkbox" value="299"  class="dropdown-checkbox" id="service-1">
-            <label class="dropdown-label" for="service-1">Hair Cut (Any)</label>
-          </div>
-          <div class="dropdown-item">
-            <input type="checkbox" value="499" class="dropdown-checkbox" id="service-2">
-            <label class="dropdown-label" for="service-2">Wax (Hand+Leg) + U. Arms + Eyebrows + U. Lips</label>
-          </div>
-          <div class="dropdown-item">
-            <input type="checkbox" value="1199" class="dropdown-checkbox" id="service-3">
-            <label class="dropdown-label" for="service-3">Advance Hair Spa + Hair Cut</label>
-          </div>
-        </div>
-      </div>
-      
-      <div id="total-cost">Total Cost: 0/-</div>
-      
-
-
-      <!-- <form id="bookingForm">
-        <label for="services">Select Services:</label>
-        <select multiple multiple id="services">
-          <option type = "checkbox" value="hairCut-299">Hair Cut - 299/-</option>
-          <option value="wax-499">Wax (Hand+Leg) + U. Arms + Eyebrows + U. Lips - 499/-</option>
-          <option value="advanceHairSpa-899">Advance Hair Spa + Hair Cut - 899/-</option>
-          <option value="cleanUp-1199">Clean up + Root touch up + Eyebrows + Lips - 1199/-</option>
-          <option value="headMassage-1199">Head Massage + Any Hair Cut + Wax (Hand+ Leg) - 1199/-</option>
-          <option value="goldFacial-1499">Gold Facial + Back Polishing+ Wax (Hand+ Leg) - 1499/-</option>
-          <option value="cherylsFacial-1999">Cheryl's Facial + D2 Tan + Pedicure + Manicure - 1999/-</option>
-        </select>
-      </form>
-      
-      <div id="totalCost">
-        Total Cost: <span id="costDisplay">0</span>
-      </div> -->
-      
-      
-      <!-- <div class="form-group">
+      <div class="form-group">
         <label for="service">Service:</label>
         <select id="service" name="service" required>
           <option value="">Select a Service</option>
@@ -263,7 +164,7 @@ select {
           <option value="nails">Nails</option>
           <option value="massage">Massage</option>
         </select>
-      </div> -->
+      </div>
       <div class="form-group">
         <label for="date">Date:</label>
         <input type="date" id="date" name="date" required>
@@ -280,35 +181,6 @@ select {
     <p>&copy; DG Makeover 2023</p>
   </footer>
   <script>
-    const serviceOptions = document.querySelectorAll('.dropdown-checkbox');
-const totalCost = document.querySelector('#total-cost');
-
-let total = 0;
-
-serviceOptions.forEach(option => {
-  option.addEventListener('change', () => {
-    if (option.checked) {
-      total += parseInt(option.value);
-    } else {
-      total -= parseInt(option.value);
-    }
-
-    totalCost.textContent = `Total Cost: ${total}/-`;
-  });
-});
-
-
-//     document.getElementById("services").addEventListener("change", function() {
-//   let totalCost = 0;
-//   let selectedServices = this.selectedOptions;
-//   for (let i = 0; i < selectedServices.length; i++) {
-//     let serviceCost = parseInt(selectedServices[i].value.split("-")[1]);
-//     totalCost += serviceCost;
-//   }
-//   document.getElementById("costDisplay").innerHTML = totalCost;
-// });
-
-
     function sendWhatsAppMessage() {
       // Get the input values from the form
       var name = document.getElementById("name").value;
