@@ -112,6 +112,74 @@
   line-height: 1.5;
   margin-bottom: 20px;
 }
+.valentine-offer {
+  background-color: #ff69b4;
+  padding: 20px;
+  text-align: center;
+}
+
+.valentine-offer h2 {
+  color: white;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.valentine-offer ul {
+  list-style: none;
+  color: white;
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+.valentine-offer li {
+  margin-bottom: 10px;
+}
+form {
+  width: 60%;
+  margin: 20px auto;
+  text-align: center;
+  background-color: #f2f2f2;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.offer-poster {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.offer-poster img {
+  width: 80%;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px #ccc;
+}
 
   </style>
   <title>DG Makeover | Offers</title>
@@ -128,7 +196,40 @@
     </nav>
   </header>
   <main>
-    <div class="offers-section">
+    <!-- <div class="valentine-offer">
+      <h2>Valentine's Day Offer</h2>
+      <ul>
+        <li>Hair Cut (Any) - 299/-</li>
+        <li>Wax (Hand+Leg) + U. Arms + Eyebrows + U. Lips - 499/-</li>
+        <li>Advance Hair Spa + Hair Cut - 899/-</li>
+        <li>Clean up + Root touch up + Eyebrows + Lips - 1199/-</li>
+        <li>Head Massage + Any Hair Cut + Wax (Hand+Leg) - 1199/-</li>
+        <li>Gold Facial + Back Polishing + Wax (Hand+Leg) - 1499/-</li>
+        <li>Cheryl's Facial + D2 Tan + Pedicure + Manicure - 1999/-</li>
+      </ul>
+    </div> -->
+    <h2 >Valentine's Day Offer</h2>
+    <div class="offer-poster">
+      <img src="{{ url_for('static', filename='pricelist.jpeg') }}" alt="Valentine's Day Offer">
+    </div>
+    <form id="offer-form">
+      <h3>Select Offer:</h3>
+      <select name="offer-options" id="offer-options">
+        <option value="">--Select Offer--</option>
+        <option value="hair-cut-299">Hair Cut (Any) - 299/-</option>
+        <option value="wax-499">Wax (Hand+Leg) + U. Arms + Eyebrows + U. Lips - 499/-</option>
+        <option value="hair-spa-899">Advance Hair Spa + Hair Cut - 899/-</option>
+        <option value="clean-up-1199">Clean up + Root touch up + Eyebrows + Lips - 1199/-</option>
+        <option value="head-massage-1199">Head Massage + Any Hair Cut + Wax (Hand+Leg) - 1199/-</option>
+        <option value="gold-facial-1499">Gold Facial + Back Polishing + Wax (Hand+Leg) - 1499/-</option>
+        <option value="cheryl-facial-1999">Cheryl's Facial + D2 Tan + Pedicure + Manicure - 1999/-</option>
+      </select>
+      <br><br>
+      <input type="submit" value="Submit">
+    </form>
+    
+    
+    <!-- <div class="offers-section">
         <h2>Special Offers</h2>
         <div class="offer-container">
           <div class="offer">
@@ -147,11 +248,22 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin, ipsum eu pellentesque finibus, justo lectus suscipit erat, vitae eleifend neque justo eu libero. </p>
           </div>
         </div>
-      </div>
+      </div> -->
       
 </main>
 <footer>
   <p>&copy; DG Makeover 2023</p>
 </footer>
+<script>
+  document.getElementById("offer-form").addEventListener("submit", function(event) {
+  event.preventDefault();
+  var selectedOffer = document.getElementById("offer-options").value;
+  if (selectedOffer) {
+    var message = "I am interested in " + selectedOffer + " offer";
+    window.location.href = "https://api.whatsapp.com/send?phone=9834823116&text=" + encodeURIComponent(message);
+  }
+});
+
+  </script>
 </body>
 </html>
